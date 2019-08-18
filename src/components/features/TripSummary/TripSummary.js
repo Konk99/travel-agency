@@ -11,8 +11,8 @@ const TripSummary = ({id, image, name, cost, days, tags}) => (
         <img src={image} alt={name} />
         <h3 className={styles.title}>{name}</h3>
         <div className={styles.details}>
-          <span>{days} days</span>
-          <span>from {cost}</span>
+          <span className='days'>{days} days</span>
+          <span className='cost'>from {cost}</span>
         </div>
         <div className={styles.tags}>
           {tags.map(tag => (
@@ -25,12 +25,12 @@ const TripSummary = ({id, image, name, cost, days, tags}) => (
 );
 
 TripSummary.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  image: PropTypes.string,
-  name: PropTypes.string,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   intro: PropTypes.string,
-  cost: PropTypes.string,
-  days: PropTypes.number,
+  cost: PropTypes.string.isRequired,
+  days: PropTypes.number.isRequired,
   tags: PropTypes.array,
 };
 
