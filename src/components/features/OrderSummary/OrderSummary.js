@@ -10,7 +10,7 @@ const OrderSummary = ({ price, options }) => (
 
 OrderSummary.propTypes = {
   price: PropTypes.node,
-  options: PropTypes.array,
+  options: PropTypes.object,
 };
 
 export default OrderSummary;
