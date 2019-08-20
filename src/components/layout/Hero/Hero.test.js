@@ -14,7 +14,7 @@ describe('Component Hero', () => {
     expect(() => shallow(<Hero />)).toThrow();
   });
 
-  it('should render colect title and image', () => {
+  it('should render corect title and image', () => {
     const expectedTitle = 'Lorem ipsum';
     const expectedImage = 'image.jpg';
     const component = shallow(<Hero titleText={expectedTitle} imageSrc={expectedImage} />);
