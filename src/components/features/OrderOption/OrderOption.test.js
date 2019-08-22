@@ -164,6 +164,12 @@ for (let type in optionTypes) {
           expect(divs.length).toBe(1);
           expect(input.length).toBe(1);
         });
+
+        it('should run setOrderOption function on change', () => {
+          renderedSubcomponent.find('input').simulate('change', { currentTarget: { value: testValue } });
+          expect(mockSetOrderOption).toBeCalledTimes(1);
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+        });
         break;
       }
       case 'date': {
@@ -173,9 +179,11 @@ for (let type in optionTypes) {
         });
 
         it('should run setOrderOption function on change', () => {
-          renderedSubcomponent.find('DatePicker').simulate('change', testValue);
+          const testDate = new Date();
+          renderedSubcomponent.find('DatePicker').simulate('change', testDate);
           expect(mockSetOrderOption).toBeCalledTimes(1);
-          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testValue });
+          expect(mockSetOrderOption).toBeCalledWith({ [mockProps.id]: testDate });
+          expect(renderedSubcomponent.state().startDate).toBe(testDate);
         });
         break;
       }
