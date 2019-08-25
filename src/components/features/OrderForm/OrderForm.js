@@ -35,13 +35,12 @@ const sendOrder = (options, tripCost, countryCode, tripId, tripName) => {
   fetch(url, fetchOptions)
     .then(function (response) {
       return response.json();
-    }).then(function (parsedResponse) {
     });
 };
 
 const OrderForm = props => (
   <form>
-    < Row >
+    <Row>
       {pricing.map(option => (
         <Col key={option.id} md={4}>
           <OrderOption {...option} currentValue={props.options[option.id]} setOrderOption={props.setOrderOption} />
